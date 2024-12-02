@@ -4,8 +4,8 @@ val pairs: List<Pair<Int, Int>> = listOf(Pair(87501, 76559), Pair(70867, 16862),
 
 fun main() {
     val (left, right) = pairs.unzip()
-    val leftSorted = left.toMutableList().apply { this.sort() }
-    val rightSorted = right.toMutableList().apply { this.sort() }
+    val leftSorted = left.sorted()
+    val rightSorted = right.sorted()
 
     val problem1Solution = leftSorted.zip(rightSorted).map { (i, j) -> abs(i - j) }.sum().also(::println)
     val problem2Solution = leftSorted.map { left -> left * rightSorted.count { left == it } }.sum().also(::println)
